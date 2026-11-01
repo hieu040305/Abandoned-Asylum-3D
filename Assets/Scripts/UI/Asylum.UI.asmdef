@@ -1,0 +1,20 @@
+{
+    "name": "Asylum.UI",
+    "rootNamespace": "AbandonedAsylum.UI",
+    "references": [
+        "Asylum.Interfaces",
+        "Asylum.Core",
+        "Asylum.Audio",
+        "Unity.TextMeshPro",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

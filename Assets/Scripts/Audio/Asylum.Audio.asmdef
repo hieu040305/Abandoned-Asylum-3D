@@ -1,0 +1,17 @@
+{
+    "name": "Asylum.Audio",
+    "rootNamespace": "AbandonedAsylum.Audio",
+    "references": [
+        "Asylum.Interfaces",
+        "Asylum.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

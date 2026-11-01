@@ -1,0 +1,28 @@
+{
+    "name": "Asylum.Editor",
+    "rootNamespace": "AbandonedAsylum.Editor",
+    "references": [
+        "Asylum.Interfaces",
+        "Asylum.Data",
+        "Asylum.Core",
+        "Asylum.Audio",
+        "Asylum.VFX",
+        "Asylum.Zombie",
+        "Asylum.Player",
+        "Asylum.UI",
+        "Cinemachine",
+        "Unity.Animation.Rigging",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

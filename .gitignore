@@ -1,0 +1,71 @@
+# ==========================================
+# Unity Standard .gitignore (Production Grade)
+# ==========================================
+
+# Unity-generated directories
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Asset store tools & crash reports
+sysinfo.txt
+*.stackdump
+
+# Unity cache
+.gradle/
+ExportedObj/
+
+# Visual Studio / Rider / VS Code cache
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity Profiler / Analysis
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Diagnostic reports and test logs
+*.log
+*_Report.txt
+
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# Builds
+*.apk
+*.aab
+*.unitypackage
+*.app
+*.exe
+
+# Antigravity agent artifacts & temporary logs
+.antigravity/
+verify_log.txt
+

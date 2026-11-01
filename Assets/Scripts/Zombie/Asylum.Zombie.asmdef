@@ -1,0 +1,20 @@
+{
+    "name": "Asylum.Zombie",
+    "rootNamespace": "AbandonedAsylum.Zombie",
+    "references": [
+        "Asylum.Interfaces",
+        "Asylum.Data",
+        "Asylum.Core",
+        "Asylum.Audio",
+        "Asylum.VFX"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

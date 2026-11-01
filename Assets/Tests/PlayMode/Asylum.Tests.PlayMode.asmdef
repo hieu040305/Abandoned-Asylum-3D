@@ -1,0 +1,31 @@
+{
+    "name": "Asylum.Tests.PlayMode",
+    "rootNamespace": "AbandonedAsylum.Tests.PlayMode",
+    "references": [
+        "Asylum.Interfaces",
+        "Asylum.Core",
+        "Asylum.Data",
+        "Asylum.Audio",
+        "Asylum.VFX",
+        "Asylum.Player",
+        "Asylum.Zombie",
+        "Asylum.UI",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

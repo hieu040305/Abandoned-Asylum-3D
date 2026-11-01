@@ -1,0 +1,22 @@
+{
+    "name": "Asylum.Player",
+    "rootNamespace": "AbandonedAsylum.Player",
+    "references": [
+        "Asylum.Interfaces",
+        "Asylum.Data",
+        "Asylum.Core",
+        "Asylum.Audio",
+        "Asylum.VFX",
+        "Cinemachine",
+        "Unity.Animation.Rigging"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
