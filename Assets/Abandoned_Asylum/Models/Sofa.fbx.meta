@@ -8,22 +8,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Pillows
-    second: {fileID: 2100000, guid: 831900cefe2027247aba9f9b0b34b24e, type: 2}
+    second: {fileID: 2100000, guid: a98dc8496b327c54680cc411627f8e3e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Sofa_Base
-    second: {fileID: 2100000, guid: 29b9ccf21a7a1864bb4beb7b3f175cca, type: 2}
+    second: {fileID: 2100000, guid: c6b90812b73d8974dbc149eb25e83334, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Sofa_Bottom
-    second: {fileID: 2100000, guid: e2c49b8cd9b577d4ea4b970b21ac58a3, type: 2}
+    second: {fileID: 2100000, guid: c6b90812b73d8974dbc149eb25e83334, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Sofa_Patern
-    second: {fileID: 2100000, guid: 7d6ce60e2d61c66419876706777a2e39, type: 2}
+    second: {fileID: 2100000, guid: c6b90812b73d8974dbc149eb25e83334, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

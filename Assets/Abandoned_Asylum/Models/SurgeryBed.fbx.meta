@@ -8,17 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Construction
-    second: {fileID: 2100000, guid: 18c5e1fb93330164c8a48a070625995d, type: 2}
+    second: {fileID: 2100000, guid: 53fd2df90a00fd5429fbda18ed4be3cc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Matres
-    second: {fileID: 2100000, guid: 98086c3d87a429a4daa9e85b3ca9c1d6, type: 2}
+    second: {fileID: 2100000, guid: 37655629fbc9b5245bce7670802bbcf3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Spring
-    second: {fileID: 2100000, guid: 0a877e64e679ab44ca719300ba33f22d, type: 2}
+    second: {fileID: 2100000, guid: bae36a3f7d4aff346b9b3f5870aea1d0, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

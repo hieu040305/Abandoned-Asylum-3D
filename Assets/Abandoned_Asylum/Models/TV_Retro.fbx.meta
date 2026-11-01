@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TV_Retro
-    second: {fileID: 2100000, guid: 860bef16e23df224f8636556c8ac7fe2, type: 2}
+    second: {fileID: 2100000, guid: 8f0de76e9590ff54d963cbdf0532376c, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -186,15 +186,15 @@ namespace AbandonedAsylum.Core
             QualitySettings.shadowCascades = 2;
             QualitySettings.shadowNearPlaneOffset = 0.1f;
 
-            // Giới hạn pixel light count = 6 để ngăn chặn Forward Multi-pass draw call explosion
-            QualitySettings.pixelLightCount = 6;
+            // Tăng pixel light count = 16 để toàn bộ bóng đèn hành lang và phòng bệnh hiển thị đầy đủ trên mọi bề mặt mesh
+            QualitySettings.pixelLightCount = 16;
 
-            // Ambient Fill u ám rùng rợn (Trilight: xanh tím lạnh lẽo - đảm bảo nhân vật không bao giờ bị đen kịt)
+            // Ambient Fill không gian Viện tâm thần u ám rùng rợn nhưng có độ tương phản và chiều sâu rõ nét
             RenderSettings.ambientMode = AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor = new Color(0.14f, 0.16f, 0.20f, 1.0f);
-            RenderSettings.ambientEquatorColor = new Color(0.08f, 0.09f, 0.11f, 1.0f);
-            RenderSettings.ambientGroundColor = new Color(0.04f, 0.04f, 0.05f, 1.0f);
-            RenderSettings.ambientIntensity = 0.65f;
+            RenderSettings.ambientSkyColor = new Color(0.24f, 0.28f, 0.35f, 1.0f);
+            RenderSettings.ambientEquatorColor = new Color(0.16f, 0.18f, 0.22f, 1.0f);
+            RenderSettings.ambientGroundColor = new Color(0.10f, 0.11f, 0.13f, 1.0f);
+            RenderSettings.ambientIntensity = 1.0f;
         }
 
         /// <summary>
@@ -248,14 +248,14 @@ namespace AbandonedAsylum.Core
                 cachedMapLamps[index] = l;
                 cachedLampPositions[index] = l.transform.position;
 
-                // Tắt hoàn toàn đổ bóng trên từng ngọn đèn
+                // Tắt hoàn toàn đổ bóng trên từng ngọn đèn để tối đa hóa hiệu năng GPU
                 l.shadows = LightShadows.None;
                 l.lightmapBakeType = LightmapBakeType.Realtime;
-                l.renderMode = LightRenderMode.Auto;
+                l.renderMode = LightRenderMode.ForcePixel;
 
-                // Giữ cường độ dịu nhẹ (0.8f - 0.95f), cự ly 4.5m - 5.5m để tránh sáng trưng
-                if (l.range > 6.0f) l.range = 5.5f;
-                if (l.intensity > 1.0f) l.intensity = 0.90f;
+                // Đảm bảo cường độ thực tế và cự ly chiếu rọi bao quát (12m - 14m, intensity 1.8f - 2.0f)
+                if (l.range < 12.0f) l.range = 14.0f;
+                if (l.intensity < 1.5f) l.intensity = 2.0f;
 
                 index++;
                 if (index >= validCount) break;
