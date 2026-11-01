@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Construction
-    second: {fileID: 2100000, guid: 53fd2df90a00fd5429fbda18ed4be3cc, type: 2}
+    second: {fileID: 2100000, guid: 27b80fa2dc09b394ab72aaaf237ec4a4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Pillow
-    second: {fileID: 2100000, guid: cddfff23802328548af6379891a1a411, type: 2}
+    second: {fileID: 2100000, guid: 868a9c2283244bc45b1d6a43b25b59e2, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -50,7 +50,7 @@ LightmapSettings:
     m_IndirectOutputScale: 0.28
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 1
-    m_EnableBakedLightmaps: 0
+    m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 12
@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 273dff6b7e6831c4aa9e5a8884e509c7, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 998b251eede0d0f40b3c07ee36f093ae, type: 2}
 --- !u!196 &4
 NavMeshSettings:

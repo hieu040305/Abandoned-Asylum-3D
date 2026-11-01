@@ -187,7 +187,7 @@ namespace AbandonedAsylum.Core
             QualitySettings.shadowNearPlaneOffset = 0.1f;
 
             // Tăng pixel light count = 16 để toàn bộ bóng đèn hành lang và phòng bệnh hiển thị đầy đủ trên mọi bề mặt mesh
-            QualitySettings.pixelLightCount = 16;
+            QualitySettings.pixelLightCount = 4;
 
             // Ambient Fill không gian Viện tâm thần u ám rùng rợn nhưng có độ tương phản và chiều sâu rõ nét
             RenderSettings.ambientMode = AmbientMode.Trilight;
@@ -251,11 +251,11 @@ namespace AbandonedAsylum.Core
                 // Tắt hoàn toàn đổ bóng trên từng ngọn đèn để tối đa hóa hiệu năng GPU
                 l.shadows = LightShadows.None;
                 l.lightmapBakeType = LightmapBakeType.Realtime;
-                l.renderMode = LightRenderMode.ForcePixel;
+                l.renderMode = LightRenderMode.Auto;
 
                 // Đảm bảo cường độ thực tế và cự ly chiếu rọi bao quát (12m - 14m, intensity 1.8f - 2.0f)
-                if (l.range < 12.0f) l.range = 14.0f;
-                if (l.intensity < 1.5f) l.intensity = 2.0f;
+                if (l.range > 8.0f) l.range = 7.5f;
+                if (l.intensity > 1.2f) l.intensity = 1.0f;
 
                 index++;
                 if (index >= validCount) break;
