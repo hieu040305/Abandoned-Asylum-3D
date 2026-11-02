@@ -149,7 +149,7 @@ namespace AbandonedAsylum.UI
                 statsText.margin = new Vector4(12f, 8f, 12f, 8f);
                 statsText.alignment = TextAlignmentOptions.Center;
 
-                statsText.SetText(
+                statsText.text = string.Format(
                     "<color=#CCCCCC>Thời Gian Sinh Tồn:</color> <color=#FFFFFF><b>{0:D2}:{1:D2}</b></color>   |   <color=#CCCCCC>Cổng Dị Thường:</color> <color=#E0D0B8><b>{2} / {3}</b></color>\n" +
                     "<color=#CCCCCC>Dị Biến Đã Tiêu Diệt:</color> <color=#FF6666><b>{4} Quái vật</b></color>\n\n" +
                     "<size=85%><color=#A0A0A0>Khu vực Karlheinz chưa được giải phóng. Dịch bệnh tiếp tục lây lan.</color></size>",

@@ -161,6 +161,11 @@ namespace AbandonedAsylum.Zombie
             currentState?.Enter();
         }
 
+        public void SetCurrentState(IZombieState newState)
+        {
+            currentState = newState;
+        }
+
         public override void ForceChasePlayer()
         {
             if (IsDead) return;

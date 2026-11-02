@@ -189,7 +189,10 @@ namespace AbandonedAsylum.Zombie
 
             if (spawnOnStart && isPlaying)
             {
-                SpawnZombie();
+                if (GameStateService != null && GameStateService.CurrentState == GameState.Playing)
+                {
+                    SpawnZombie();
+                }
             }
 
             nextSpawnTime = Time.time + spawnInterval;
@@ -273,7 +276,7 @@ namespace AbandonedAsylum.Zombie
                 portalVFX.UpdateVFX(pulse, isHit, hitFlashColor);
             }
 
-            if (GameStateService != null && GameStateService.CurrentState != GameState.Playing)
+            if (GameStateService == null || GameStateService.CurrentState != GameState.Playing)
             {
                 return;
             }

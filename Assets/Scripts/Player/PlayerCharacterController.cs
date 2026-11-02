@@ -21,6 +21,7 @@ namespace AbandonedAsylum.Player
     [RequireComponent(typeof(PlayerLocomotion))]
     [RequireComponent(typeof(PlayerAimRigController))]
     [RequireComponent(typeof(PlayerWeaponController))]
+    [ExecuteAlways]
     [DisallowMultipleComponent]
     public class PlayerCharacterController : MonoBehaviour, IDamageable, IPlayerStatsNotifier
     {
@@ -96,42 +97,42 @@ namespace AbandonedAsylum.Player
         public ImpactSoundType ImpactType => ImpactSoundType.Flesh;
         public LayerMask EffectiveShootableLayers => weaponController != null ? weaponController.EffectiveShootableLayers : shootableLayers;
 
-        public PlayerLocomotion Locomotion => locomotion;
-        public PlayerAimRigController AimRig => aimRigController;
-        public PlayerWeaponController Weapon => weaponController;
-        public PlayerHealth Health => playerHealth;
-        public IWeaponStrategy CurrentWeaponStrategy => weaponController != null ? weaponController.CurrentStrategy : null;
-        public string CurrentWeaponName => weaponController != null ? weaponController.CurrentWeaponName : "Assault Rifle";
+        public PlayerLocomotion Locomotion => locomotion != null ? locomotion : (locomotion = GetComponent<PlayerLocomotion>() ?? gameObject.AddComponent<PlayerLocomotion>());
+        public PlayerAimRigController AimRig => aimRigController != null ? aimRigController : (aimRigController = GetComponent<PlayerAimRigController>() ?? gameObject.AddComponent<PlayerAimRigController>());
+        public PlayerWeaponController Weapon => weaponController != null ? weaponController : (weaponController = GetComponent<PlayerWeaponController>() ?? gameObject.AddComponent<PlayerWeaponController>());
+        public PlayerHealth Health => playerHealth != null ? playerHealth : (playerHealth = GetComponent<PlayerHealth>() ?? gameObject.AddComponent<PlayerHealth>());
+        public IWeaponStrategy CurrentWeaponStrategy => Weapon != null ? Weapon.CurrentStrategy : null;
+        public string CurrentWeaponName => Weapon != null ? Weapon.CurrentWeaponName : "Assault Rifle";
 
         #region IPlayerStatsNotifier Implementation
         public event Action<float, float> OnHealthChanged
         {
-            add { if (playerHealth != null) playerHealth.OnHealthChanged += value; }
-            remove { if (playerHealth != null) playerHealth.OnHealthChanged -= value; }
+            add { Health.OnHealthChanged += value; }
+            remove { Health.OnHealthChanged -= value; }
         }
 
         public event Action<int, int> OnAmmoChanged
         {
-            add { if (weaponController != null) weaponController.OnAmmoChanged += value; }
-            remove { if (weaponController != null) weaponController.OnAmmoChanged -= value; }
+            add { Weapon.OnAmmoChanged += value; }
+            remove { Weapon.OnAmmoChanged -= value; }
         }
 
         public event Action<float, float, bool> OnReloadProgressChanged
         {
-            add { if (weaponController != null) weaponController.OnReloadProgressChanged += value; }
-            remove { if (weaponController != null) weaponController.OnReloadProgressChanged -= value; }
+            add { Weapon.OnReloadProgressChanged += value; }
+            remove { Weapon.OnReloadProgressChanged -= value; }
         }
 
         public event Action<string> OnWeaponChanged
         {
-            add { if (weaponController != null) weaponController.OnWeaponChanged += value; }
-            remove { if (weaponController != null) weaponController.OnWeaponChanged -= value; }
+            add { Weapon.OnWeaponChanged += value; }
+            remove { Weapon.OnWeaponChanged -= value; }
         }
 
         public event Action OnPlayerDied
         {
-            add { if (playerHealth != null) playerHealth.OnDeath += value; }
-            remove { if (playerHealth != null) playerHealth.OnDeath -= value; }
+            add { Health.OnDeath += value; }
+            remove { Health.OnDeath -= value; }
         }
         #endregion
         #endregion

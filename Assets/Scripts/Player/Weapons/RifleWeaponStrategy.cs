@@ -12,7 +12,7 @@ namespace AbandonedAsylum.Player.Weapons
     /// </summary>
     public class RifleWeaponStrategy : IWeaponStrategy
     {
-        public string StrategyName => "Automatic Assault Rifle";
+        public string StrategyName => "Assault Rifle";
         private static readonly RaycastHit[] FallbackHitBuffer = new RaycastHit[8];
 
         public void ExecuteFire(in WeaponFireContext context)

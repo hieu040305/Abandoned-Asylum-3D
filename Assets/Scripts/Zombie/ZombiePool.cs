@@ -69,7 +69,10 @@ namespace AbandonedAsylum.Zombie
                 return;
             }
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (Application.isPlaying)
+            {
+                DontDestroyOnLoad(gameObject);
+            }
 
             GameManager.OnSceneResetRequested -= ResetAllZombies;
             GameManager.OnSceneResetRequested += ResetAllZombies;
@@ -91,8 +94,14 @@ namespace AbandonedAsylum.Zombie
 
         public void RegisterPrefab(GameObject prefab)
         {
-            if (prefab != null && (cachedPrefab == null || internalPool == null))
+            if (prefab != null && (cachedPrefab != prefab || internalPool == null))
             {
+                ResetAllZombies();
+                if (internalPool != null)
+                {
+                    internalPool.Clear();
+                    internalPool = null;
+                }
                 cachedPrefab = prefab;
                 cachedZombieComponent = prefab.GetComponent<ZombieController>();
                 InitializeInternalPool();
@@ -257,6 +266,11 @@ namespace AbandonedAsylum.Zombie
                     }
                 }
                 activeZombies.Clear();
+            }
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
             }
         }
     }

@@ -18,7 +18,7 @@ namespace AbandonedAsylum.Audio
                 if (instance == null)
                 {
                     instance = FindFirstObjectByType<GameAudioFX>();
-                    if (instance == null && !isApplicationQuitting)
+                    if (instance == null && !isApplicationQuitting && Application.isPlaying)
                     {
                         GameObject go = new GameObject("GameAudioFX_Manager");
                         instance = go.AddComponent<GameAudioFX>();
@@ -192,6 +192,7 @@ namespace AbandonedAsylum.Audio
         public static void PlayRifleShoot(Vector3 pos, AudioSource directSource = null)
         {
             var inst = Instance;
+            if (inst == null) return;
             AudioClip clip = null;
 
             if (inst.rifleShootVariations != null && inst.rifleShootVariations.Length > 0)
@@ -214,7 +215,9 @@ namespace AbandonedAsylum.Audio
 
         public static void PlayRifleReloadMagOut(Vector3 pos, AudioSource directSource = null)
         {
-            AudioClip clip = Instance.rifleReloadMagOutClip;
+            var inst = Instance;
+            if (inst == null) return;
+            AudioClip clip = inst.rifleReloadMagOutClip;
             if (clip == null) return;
 
             if (directSource != null)
@@ -230,7 +233,9 @@ namespace AbandonedAsylum.Audio
 
         public static void PlayRifleReloadMagIn(Vector3 pos, AudioSource directSource = null)
         {
-            AudioClip clip = Instance.rifleReloadMagInClip;
+            var inst = Instance;
+            if (inst == null) return;
+            AudioClip clip = inst.rifleReloadMagInClip;
             if (clip == null) return;
 
             if (directSource != null)
@@ -246,7 +251,9 @@ namespace AbandonedAsylum.Audio
 
         public static void PlayRifleReloadCharge(Vector3 pos, AudioSource directSource = null)
         {
-            AudioClip clip = Instance.rifleReloadChargeClip;
+            var inst = Instance;
+            if (inst == null) return;
+            AudioClip clip = inst.rifleReloadChargeClip;
             if (clip == null) return;
 
             if (directSource != null)
@@ -263,6 +270,7 @@ namespace AbandonedAsylum.Audio
         public static void PlayZombieGrowl(AudioSource source)
         {
             var inst = Instance;
+            if (inst == null) return;
             if (inst.zombieGrowlClips == null || inst.zombieGrowlClips.Length == 0) return;
 
             AudioClip clip = inst.zombieGrowlClips[Random.Range(0, inst.zombieGrowlClips.Length)];
@@ -276,6 +284,7 @@ namespace AbandonedAsylum.Audio
         public static void PlayZombieAttack(AudioSource source)
         {
             var inst = Instance;
+            if (inst == null) return;
             if (inst.zombieAttackClips == null || inst.zombieAttackClips.Length == 0) return;
 
             AudioClip clip = inst.zombieAttackClips[Random.Range(0, inst.zombieAttackClips.Length)];
@@ -289,6 +298,7 @@ namespace AbandonedAsylum.Audio
         public static void PlayZombieHurt(AudioSource source)
         {
             var inst = Instance;
+            if (inst == null) return;
             if (inst.zombieHurtClips == null || inst.zombieHurtClips.Length == 0)
             {
                 PlayZombieAttack(source);
@@ -306,6 +316,7 @@ namespace AbandonedAsylum.Audio
         public static void PlayZombieDeath(AudioSource source)
         {
             var inst = Instance;
+            if (inst == null) return;
             if (inst.zombieDeathClips == null || inst.zombieDeathClips.Length == 0) return;
 
             AudioClip clip = inst.zombieDeathClips[Random.Range(0, inst.zombieDeathClips.Length)];
@@ -318,7 +329,9 @@ namespace AbandonedAsylum.Audio
 
         public static void PlayClawSwipe(Vector3 pos)
         {
-            AudioClip clip = Instance.clawSwipeClip;
+            var inst = Instance;
+            if (inst == null) return;
+            AudioClip clip = inst.clawSwipeClip;
             if (clip != null)
             {
                 PlayClipAtPoint(clip, pos, 0.9f, 1.5f, 25.0f, 1.0f);
@@ -327,7 +340,9 @@ namespace AbandonedAsylum.Audio
 
         public static void PlayClawHit(Vector3 pos)
         {
-            AudioClip clip = Instance.clawHitClip;
+            var inst = Instance;
+            if (inst == null) return;
+            AudioClip clip = inst.clawHitClip;
             if (clip != null)
             {
                 PlayClipAtPoint(clip, pos, 1.0f, 1.5f, 25.0f, 1.0f);
@@ -336,7 +351,9 @@ namespace AbandonedAsylum.Audio
 
         public static void PlayBulletFleshHit(Vector3 pos)
         {
-            AudioClip clip = Instance.bulletHitFleshClip;
+            var inst = Instance;
+            if (inst == null) return;
+            AudioClip clip = inst.bulletHitFleshClip;
             if (clip != null)
             {
                 PlayClipAtPoint(clip, pos, 1.0f, 2.0f, 35.0f, 1.0f);
@@ -345,7 +362,9 @@ namespace AbandonedAsylum.Audio
 
         public static void PlayBulletPortalHit(Vector3 pos)
         {
-            AudioClip clip = Instance.bulletHitPortalClip;
+            var inst = Instance;
+            if (inst == null) return;
+            AudioClip clip = inst.bulletHitPortalClip;
             if (clip != null)
             {
                 PlayClipAtPoint(clip, pos, 1.0f, 2.0f, 35.0f, 1.0f);
@@ -354,7 +373,9 @@ namespace AbandonedAsylum.Audio
 
         public static void PlayPortalCollapse(Vector3 pos)
         {
-            AudioClip clip = Instance.portalCollapseClip ?? Instance.bulletHitPortalClip;
+            var inst = Instance;
+            if (inst == null) return;
+            AudioClip clip = inst.portalCollapseClip ?? inst.bulletHitPortalClip;
             if (clip != null)
             {
                 PlayClipAtPoint(clip, pos, 1.25f, 3.0f, 45.0f, 1.0f);
@@ -363,7 +384,9 @@ namespace AbandonedAsylum.Audio
 
         public static void PlayBulletConcreteHit(Vector3 pos)
         {
-            AudioClip clip = Instance.bulletHitConcreteClip;
+            var inst = Instance;
+            if (inst == null) return;
+            AudioClip clip = inst.bulletHitConcreteClip;
             if (clip != null)
             {
                 PlayClipAtPoint(clip, pos, 0.75f, 1.5f, 25.0f, 1.0f);

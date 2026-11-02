@@ -307,6 +307,18 @@ namespace AbandonedAsylum.Player
                 if (weaponCtrl.BulletSpawnPoint != null) return weaponCtrl.BulletSpawnPoint;
             }
 
+            // Fallback Discovery: Tu dong tim kiem trong cay phan cap con (shootpoint, muzzle, firepoint, bulletspawn)
+            Transform[] children = GetComponentsInChildren<Transform>(true);
+            for (int i = 0; i < children.Length; i++)
+            {
+                if (children[i] == transform) continue;
+                string lower = children[i].name.ToLowerInvariant();
+                if (lower.Contains("shootpoint") || lower.Contains("muzzle") || lower.Contains("bulletspawn") || lower.Contains("firepoint"))
+                {
+                    return children[i];
+                }
+            }
+
             return transform;
         }
         #endregion

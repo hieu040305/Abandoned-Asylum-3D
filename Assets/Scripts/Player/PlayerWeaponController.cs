@@ -76,7 +76,17 @@ namespace AbandonedAsylum.Player
         private WeaponDataSO primaryWeaponData;
 
         public int CurrentWeaponSlot => currentWeaponSlot;
-        public string CurrentWeaponName => weaponData != null ? weaponData.WeaponName : (currentWeaponSlot == 0 ? "Assault Rifle" : "Tactical Shotgun");
+        public string CurrentWeaponName
+        {
+            get
+            {
+                if (weaponData != null && !string.IsNullOrEmpty(weaponData.WeaponName))
+                    return weaponData.WeaponName;
+                if (weaponStrategy != null && !string.IsNullOrEmpty(weaponStrategy.StrategyName))
+                    return weaponStrategy.StrategyName;
+                return currentWeaponSlot == 0 ? "Assault Rifle" : "Tactical Shotgun";
+            }
+        }
         public IWeaponStrategy CurrentStrategy => weaponStrategy;
         public int CurrentAmmo => currentAmmo;
         public int MaxAmmo => maxAmmo;
@@ -272,6 +282,7 @@ namespace AbandonedAsylum.Player
             if (currentWeaponSlot == 0)
             {
                 weaponStrategy = new RifleWeaponStrategy();
+                weaponData = primaryWeaponData;
                 if (primaryWeaponData != null)
                 {
                     ApplyWeaponData(primaryWeaponData);
@@ -290,6 +301,7 @@ namespace AbandonedAsylum.Player
             else
             {
                 weaponStrategy = new ShotgunWeaponStrategy();
+                weaponData = secondaryWeaponData;
                 if (secondaryWeaponData != null)
                 {
                     ApplyWeaponData(secondaryWeaponData);

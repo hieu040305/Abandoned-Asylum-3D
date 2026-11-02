@@ -92,7 +92,8 @@ namespace AbandonedAsylum.Core
             {
                 if (item != null && item.gameObject != null)
                 {
-                    UnityEngine.Object.Destroy(item.gameObject);
+                    item.gameObject.SetActive(false);
+                    SafeDestroy(item.gameObject);
                 }
             }
             activeSet.Clear();
@@ -102,8 +103,22 @@ namespace AbandonedAsylum.Core
                 var item = inactiveStack.Pop();
                 if (item != null && item.gameObject != null)
                 {
-                    UnityEngine.Object.Destroy(item.gameObject);
+                    item.gameObject.SetActive(false);
+                    SafeDestroy(item.gameObject);
                 }
+            }
+        }
+
+        private static void SafeDestroy(UnityEngine.Object target)
+        {
+            if (target == null) return;
+            if (UnityEngine.Application.isPlaying)
+            {
+                UnityEngine.Object.Destroy(target);
+            }
+            else
+            {
+                UnityEngine.Object.DestroyImmediate(target);
             }
         }
     }

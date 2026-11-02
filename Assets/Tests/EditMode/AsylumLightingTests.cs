@@ -25,6 +25,7 @@ namespace AbandonedAsylum.Tests
         [TearDown]
         public void TearDown()
         {
+            PlayerRegistry.Unregister(PlayerRegistry.PlayerTransform);
             for (int i = 0; i < testObjects.Count; i++)
             {
                 if (testObjects[i] != null)

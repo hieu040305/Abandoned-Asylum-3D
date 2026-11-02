@@ -12,7 +12,7 @@ namespace AbandonedAsylum.Player.Weapons
     /// </summary>
     public class ShotgunWeaponStrategy : IWeaponStrategy
     {
-        public string StrategyName => "Combat Pump/Tactical Shotgun";
+        public string StrategyName => "Tactical Shotgun";
 
         private const int PelletCount = 6;
         private const float SpreadAngle = 3.5f;

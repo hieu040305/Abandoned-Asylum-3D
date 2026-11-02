@@ -72,7 +72,7 @@ namespace AbandonedAsylum.Data
         {
             var so = ScriptableObject.CreateInstance<WeaponDataSO>();
             so.weaponType = WeaponType.Shotgun;
-            so.weaponName = "Tactical Combat Shotgun";
+            so.weaponName = "Tactical Shotgun";
             so.fireRate = 0.65f;
             so.damage = 72.0f;
             so.range = 50.0f;

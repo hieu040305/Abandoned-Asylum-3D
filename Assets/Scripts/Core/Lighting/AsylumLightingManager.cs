@@ -57,16 +57,25 @@ namespace AbandonedAsylum.Core
 
         private void Awake()
         {
-            if (instance != null && instance != this)
+            if (Application.isPlaying)
             {
-                if (Application.isPlaying) Destroy(gameObject);
-                else DestroyImmediate(gameObject);
-                return;
+                if (instance != null && instance != this)
+                {
+                    Destroy(gameObject);
+                    return;
+                }
+                instance = this;
+                if (transform.parent == null)
+                {
+                    DontDestroyOnLoad(gameObject);
+                }
             }
-            instance = this;
-            if (Application.isPlaying && transform.parent == null)
+            else
             {
-                DontDestroyOnLoad(gameObject);
+                if (instance == null || !instance)
+                {
+                    instance = this;
+                }
             }
 
             PurgeArtificialLights();
@@ -145,19 +154,17 @@ namespace AbandonedAsylum.Core
                 }
             }
 
-            if (playerTransform == null)
+            Transform pTrans = playerTransform != null ? playerTransform : PlayerRegistry.PlayerTransform;
+            if (pTrans == null)
             {
-                playerTransform = PlayerRegistry.PlayerTransform;
-                if (playerTransform == null)
-                {
-                    GameObject pObj = GameObject.FindWithTag("Player");
-                    if (pObj != null) playerTransform = pObj.transform;
-                }
+                GameObject pObj = GameObject.FindWithTag("Player");
+                if (pObj != null) pTrans = pObj.transform;
             }
+            playerTransform = pTrans;
 
-            if (playerTransform != null)
+            if (pTrans != null)
             {
-                Transform fl = playerTransform.Find("TacticalFlashlight");
+                Transform fl = pTrans.Find("TacticalFlashlight");
                 if (fl != null)
                 {
                     if (Application.isPlaying) Destroy(fl.gameObject);

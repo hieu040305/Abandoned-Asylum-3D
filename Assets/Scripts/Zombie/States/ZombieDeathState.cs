@@ -29,6 +29,7 @@ namespace AbandonedAsylum.Zombie
             deathTimer = 0.0f;
             isDestroyed = false;
             animationDuration = Mathf.Max(2.5f, zombie.DeathAnimationDuration);
+            zombie.SetCurrentState(this);
 
             zombie.StopAllCoroutines();
             GameManager.Instance?.OnZombieKilled();

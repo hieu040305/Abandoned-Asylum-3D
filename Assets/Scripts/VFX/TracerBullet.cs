@@ -183,7 +183,7 @@ namespace AbandonedAsylum.VFX
             if (bulletPoolContainer == null)
             {
                 bulletPoolContainer = new GameObject("[TracerBullet_ObjectPool]");
-                DontDestroyOnLoad(bulletPoolContainer);
+                if (Application.isPlaying) DontDestroyOnLoad(bulletPoolContainer);
             }
 
             bulletPool = new TracerBullet[BulletPoolSize];
@@ -254,7 +254,7 @@ namespace AbandonedAsylum.VFX
             if (sparkPoolContainer == null)
             {
                 sparkPoolContainer = new GameObject("[TracerImpactSparks_ObjectPool]");
-                DontDestroyOnLoad(sparkPoolContainer);
+                if (Application.isPlaying) DontDestroyOnLoad(sparkPoolContainer);
             }
 
             sparkPool = new PooledImpactSpark[SparkPoolSize];
