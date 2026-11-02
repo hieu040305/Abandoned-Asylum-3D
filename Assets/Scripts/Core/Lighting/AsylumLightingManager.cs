@@ -250,7 +250,6 @@ namespace AbandonedAsylum.Core
 
                 // Tắt hoàn toàn đổ bóng trên từng ngọn đèn để tối đa hóa hiệu năng GPU
                 l.shadows = LightShadows.None;
-                l.lightmapBakeType = LightmapBakeType.Realtime;
                 l.renderMode = LightRenderMode.Auto;
 
                 // Đảm bảo cường độ thực tế và cự ly chiếu rọi bao quát (12m - 14m, intensity 1.8f - 2.0f)
