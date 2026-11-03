@@ -10,12 +10,12 @@
         "Asylum.Player",
         "Asylum.Zombie",
         "Asylum.UI",
-        "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner"
+        "UnityEngine.TestRunner"
     ],
-    "includePlatforms": [
-        "Editor"
+    "optionalUnityReferences": [
+        "TestAssemblies"
     ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
